@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менин сүйүктүүм ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+
+    background:
+        
+        url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+        h1 {
+            color: rgb(28, 87, 176);
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 35px;
+        }
+
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 190px;
+            background: #ff6f9f;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px #00000025;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Конверттин үстүндөгү үч бурчтук */
+        .envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 110px solid #ffb0c9;
+            transform-origin: top;
+            transition: transform 0.7s;
+            z-index: 2;
+        }
+
+        .envelope.open::before {
+            transform: rotateX(180deg);
+        }
+
+        /* Конвертти ачуу кнопкасы */
+        .open-btn {
+            position: absolute;
+            z-index: 5;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: #d6336c;
+            border: 2px solid #ffb0c9;
+            border-radius: 25px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px #00000020;
+            transition: 0.3s;
+        }
+
+        .open-btn:hover {
+            background: #ffe5ee;
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        /* Сүйүү каты */
+        .letter {
+            display: none;
+            width: 100%;
+            max-width: 430px;
+            margin-top: 30px;
+            padding: 25px;
+            background: #fffafa;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px #00000020;
+            color: #713044;
+            line-height: 1.8;
+            text-align: center;
+            animation: appear 1s ease;
+        }
+
+        .letter.show {
+            display: block;
+        }
+
+        .letter h2 {
+            color: #d6336c;
+            margin-bottom: 18px;
+            font-size: 24px;
+        }
+
+        .letter p {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .signature {
+            color: #d6336c;
+            font-weight: bold;
+            font-size: 19px !important;
+            margin-top: 15px;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Учуп жүргөн жүрөктөр */
+        .heart {
+            position: fixed;
+            bottom: -30px;
+            color: #ff2f75;
+            font-size: 22px;
+            animation: fly 5s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Телефонго ылайыкташтыруу */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 23px;
+            }
+
+            .envelope {
+                width: 270px;
+                height: 170px;
+            }
+
+            .envelope::before {
+                border-left-width: 135px;
+                border-right-width: 135px;
+                border-top-width: 100px;
+            }
+
+            .letter {
+                padding: 20px;
+            }
+
+            .letter h2 {
+                font-size: 21px;
+            }
+
+            .letter p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Сага айта албай жургон созум бар ❤️</h1>
+
+    <div class="envelope" id="envelope">
+
+        <button class="open-btn" id="openBtn" onclick="openLetter()">
+            Бул жак кызык болсо ач 
+        </button>
+
+    </div>
+
+    <div class="letter" id="letter">
+
+        <h2>Менин бир гана сүйгөнүм  ❤️</h2>
+
+        <p>
+            Кээде адам бирөөнү эмне үчүн жакшы көрүп калганын
+            түшүндүрө албайт экен. Балким, анын жылмаюусунан,
+            сүйлөгөн сөзүнөн же жөн гана бар экенинендир.
+        </p>
+
+        <p>
+            Мен да сени эмнеге мынчалык жакшы көрөрүмдү билбейм.
+            Болгону, ар бир күнүмдө сен болсоң экен дейм.
+        </p>
+
+        <p>
+            Сенин күлкүң өчпөсүн, көздөрүңдөн кубаныч кетпесин.
+            Анткени сенин бактылуу болгонуң — менин да бакытым.
+            ❤️
+        </p>
+
+        <p class="signature">
+            Сени жакшы көрөм! 🥹❤️
+        </p>
+
+    </div>
+
+    <script>
+        function openLetter() {
+
+            const envelope = document.getElementById("envelope");
+            const button = document.getElementById("openBtn");
+            const letter = document.getElementById("letter");
+
+            envelope.classList.add("open");
+
+            button.style.display = "none";
+
+            setTimeout(() => {
+                letter.classList.add("show");
+            }, 700);
+        }
+
+        // Учуп жүргөн жүрөктөр
+        function createHeart() {
+
+            const heart = document.createElement("div");
+
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+
+</body>
+</html>
